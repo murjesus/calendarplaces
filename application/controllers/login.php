@@ -23,10 +23,16 @@ class Controllers_Login extends Abstract_Controller
 			}	
 			
 			$user = new Model_Login();
-			$user->singin($_POST['email'], $_POST['password']); 
-			echo "<pre>";
-			print_r($_POST);
-			echo "</pre>";
+			if ($user->singin($_POST['email'], $_POST['password']))
+			{
+				header('Location: /backend'); 
+				exit;
+			}
+			else
+			{
+				header('Location: /login/login'); 
+				exit;
+			}
 			
 		}
 		

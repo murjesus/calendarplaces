@@ -17,7 +17,7 @@ class Model_Login
 	
 	public function singin($identity, $credentials)
 	{
-		$this->adapter->getCredentials($identity, $credentials);
+		return $this->adapter->getCredentials($identity, $credentials);
 	}
 	
 	public function singup()
