@@ -17,7 +17,19 @@ class Model_Login
 	
 	public function signin($identity, $credentials)
 	{
-		return $this->adapter->getCredentials($identity, $credentials);
+		
+		$user=$this->adapter->getCredentials($identity, $credentials);
+		echo "<pre>user:";
+		print_r($user);
+		echo "</pre>";
+		if(count($user)===1)
+		{
+			$objetcUser = new Entity_User($user);
+			$_SESSION['user']=$objetcUser;
+			return true;
+		}
+		else
+			return false;
 	}
 	
 	public function signup()
@@ -26,3 +38,30 @@ class Model_Login
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

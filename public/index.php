@@ -17,4 +17,8 @@ $bootstrap = new Bootstrap($configFile);
 $bootstrap->run();
 
 
+// echo "<pre>";
+// print_r($_SESSION);
+// echo "</pre>";
+
 

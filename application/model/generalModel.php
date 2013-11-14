@@ -76,11 +76,29 @@ function getRequest()
 	if(isset($params))
 		return array('controller'=>$controller,
 			'action'=>$action,
-			'params'=>$params);
+			'params'=>$params,
+			'post'=>getPost($_POST));
 	else
 		return array('controller'=>$controller,
-				'action'=>$action);
+				'action'=>$action,
+				'post'=>getPost($_POST));
 }
+
+function getPost()
+{
+	$cleanPost=array();
+	if(isset($_POST))
+	{		
+		foreach($_POST as $key => $value)
+		{
+			$cleanPost[$key]=addslashes($value);
+		}
+	}
+	return $cleanPost;
+}
+
+//function getGet();
+
 
 
 
