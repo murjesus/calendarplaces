@@ -15,12 +15,12 @@ class Model_Login
 		$this->adapter = new $adaptername();	
 	}
 	
-	public function singin($identity, $credentials)
+	public function signin($identity, $credentials)
 	{
 		return $this->adapter->getCredentials($identity, $credentials);
 	}
 	
-	public function singup()
+	public function signup()
 	{
 		
 	}

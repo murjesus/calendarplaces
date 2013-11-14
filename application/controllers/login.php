@@ -9,11 +9,20 @@ class Controllers_Login extends Abstract_Controller
 	
 	public function indexAction()
 	{
-		
+		header('Location: /login/login');
 	}
 	
 	public function loginAction()
 	{
+		echo "<pre>";
+		print_r($_POST);
+		echo "</pre>";
+		
+		$recaptcha = new Zend_Service_ReCaptcha($_SESSION['register']['key.public'], 
+												$_SESSION['register']['key.private']);
+		
+		
+		$this->viewParams['captcha']=$recaptcha->getHTML();
 		if($_POST)
 		{
 			if (isset($_POST['signup']))
@@ -23,7 +32,18 @@ class Controllers_Login extends Abstract_Controller
 			}	
 			
 			$user = new Model_Login();
-			if ($user->singin($_POST['email'], $_POST['password']))
+			
+			$result = $recaptcha->verify(
+					$_POST['recaptcha_challenge_field'],
+					$_POST['recaptcha_response_field']
+			);
+			
+			
+			if (!$result->isValid()) {
+				header('Location: /login/login'); 
+				exit;
+			}
+			if ($user->signin($_POST['email'], $_POST['password']))
 			{
 				header('Location: /backend'); 
 				exit;
