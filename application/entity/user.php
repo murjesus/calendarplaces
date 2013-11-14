@@ -4,7 +4,7 @@ class Entity_User
 	protected $id_user=NULL;
 	protected $email='s';
 	protected $password=NULL;
-	protected $name=NULL;
+	public $name=NULL;
 	
 	public function __construct($user)
 	{
@@ -15,8 +15,7 @@ class Entity_User
 				$this->setId_user($user['id_user']);
 			if(isset($user['email']))
 				$this->setEmail($user['email']);
-			if(isset($user['password']))
-				$this->setPassword($user['password']);
+			
 			if(isset($user['name']))
 				$this->setName($user['name']);
 			

@@ -62,6 +62,7 @@ class Controllers_Login extends Abstract_Controller
 // 			}
 			if ($user->signin($this->request['post']['email'], $this->request['post']['password']))
 			{
+				session_regenerate_id();
 				header('Location: /backend'); 
 				exit;
 			}
@@ -77,7 +78,10 @@ class Controllers_Login extends Abstract_Controller
 	}
 	public function logoutAction()
 	{
-		
+		unset($_SESSION['user']);
+		session_regenerate_id();
+		header('Location: /');
+		exit;
 	}
 	
 	public function signupAction()
