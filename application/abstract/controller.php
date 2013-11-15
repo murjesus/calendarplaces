@@ -15,30 +15,20 @@ abstract class Abstract_Controller
 		$this->request = $request;
 		$this->config = $config;
 		$this->setLayout($this->layout);
-		
-		
-// 		Zend_Debug::dump($this->request);
-		
-// 		Zend_Debug::dump($this->config);
-		
-		Zend_Debug::dump($_SESSION);
+
 		if(isset($_SESSION['user']))
-			$acl = explode(',', $this->config['rol'.$_SESSION['user']->rol]);
+			$acl = explode(',', $this->config['rol.'.$_SESSION['user']->rol]);
 		else
 			$acl = explode(',', $this->config['rol.guest']);
 		
-// 		Zend_Debug::dump($acl);
-		
-		
 		if(in_array('/'.$this->request['controller'].'/'.$this->request['action'],$acl))
 		{
-			echo "si";
+			// Do nothing
 		}
 		else
 		{
-// 			header('Location: /login/login');
-// 			exit;
-			echo "no";
+			header('Location: /login/login');
+			exit;			
 		}
 		
 	}

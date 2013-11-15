@@ -21,9 +21,9 @@ class Model_Login_LoginMysql extends Abstract_Mysql
 		}
 		
 		if(count($users)===1 && !empty($users))
-			return 'user';
+			return $users[0];
 		else
-			return 'guest';
+			return false;
 		
 	}
 	
