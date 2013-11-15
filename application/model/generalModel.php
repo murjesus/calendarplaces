@@ -133,6 +133,7 @@ function getLinkRead($config)
 	);
 
 	mysqli_select_db($linkRead,$config['database.dbr'] );
+	mysqli_query($linkRead, "SET NAMES 'utf8'");
 
 	return $linkRead;
 }
@@ -145,7 +146,7 @@ function getLinkWrite($config)
 	);
 
 	mysqli_select_db($linkRead,$config['database.dbw'] );
-
+	mysqli_query($linkRead, "SET NAMES 'utf8'");
 	return $linkRead;
 }
 

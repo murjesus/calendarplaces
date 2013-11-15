@@ -5,6 +5,7 @@ class Entity_User
 	protected $email='s';
 	protected $password=NULL;
 	public $name=NULL;
+	public $rol;
 	
 	public function __construct($user)
 	{
@@ -19,11 +20,21 @@ class Entity_User
 			if(isset($user['name']))
 				$this->setName($user['name']);
 			
+			Zend_Debug::dump($user); 
+			$this->setRol($user['id_user']);
+				
 		}
 		
 		
 		return $this;
 		
+	}
+	
+	public function setRol($id)
+	{
+		$user = new Model_Users_UsersMysql();
+		$this->rol = $user->getRol($id);
+		return;
 	}
 	
 	/**
