@@ -28,6 +28,11 @@ class Bootstrap
 	protected function _register()
 	{
 		$this->setRegisterVar('adapter', $this->config['adapter']);
+<<<<<<< HEAD
+=======
+		$this->setRegisterVar('key.public', $this->config['key.public']);
+		$this->setRegisterVar('key.private', $this->config['key.private']);
+>>>>>>> d43830c35126e4e491951501240576c5d578a809
 	}
 	
 	

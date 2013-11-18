@@ -15,14 +15,64 @@ class Model_Login
 		$this->adapter = new $adaptername();	
 	}
 	
+<<<<<<< HEAD
 	public function singin($identity, $credentials)
 	{
 		return $this->adapter->getCredentials($identity, $credentials);
 	}
 	
 	public function singup()
+=======
+	public function signin($identity, $credentials)
+	{
+		
+		$user=$this->adapter->getCredentials($identity, $credentials);
+	
+		if(!empty($user))
+		{
+			$objetcUser = new Entity_User($user);
+			$_SESSION['user']=$objetcUser;
+			return true;
+		}
+		else
+			return false;
+	}
+	
+	public function signup()
+>>>>>>> d43830c35126e4e491951501240576c5d578a809
 	{
 		
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> d43830c35126e4e491951501240576c5d578a809

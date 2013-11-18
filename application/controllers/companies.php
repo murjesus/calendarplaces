@@ -12,6 +12,7 @@ class Controllers_Companies extends Abstract_Controller
 	
 	public function indexAction()
 	{
+<<<<<<< HEAD
 		
 		$companies = new Model_Companies();
 		if ($companies->selectAll())
@@ -22,6 +23,9 @@ class Controllers_Companies extends Abstract_Controller
 		{
 			echo "no hay ninguna compañia en la base de datos";
 		}
+=======
+	
+>>>>>>> d43830c35126e4e491951501240576c5d578a809
 	}
 	
 	

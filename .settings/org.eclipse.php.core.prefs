@@ -1,3 +1,7 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 include_path=0;/calendarplaces
+=======
+include_path=0;/calendarplaces\u00055;org.eclipse.dltk.USER_LIBRARY/org.eclipse.php.core.PHPNature\#Zend Framework 1
+>>>>>>> d43830c35126e4e491951501240576c5d578a809
 use_asp_tags_as_php=false

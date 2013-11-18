@@ -76,12 +76,39 @@ function getRequest()
 	if(isset($params))
 		return array('controller'=>$controller,
 			'action'=>$action,
+<<<<<<< HEAD
 			'params'=>$params);
 	else
 		return array('controller'=>$controller,
 				'action'=>$action);
 }
 
+=======
+			'params'=>$params,
+			'post'=>getPost($_POST));
+	else
+		return array('controller'=>$controller,
+				'action'=>$action,
+				'post'=>getPost($_POST));
+}
+
+function getPost()
+{
+	$cleanPost=array();
+	if(isset($_POST))
+	{		
+		foreach($_POST as $key => $value)
+		{
+			$cleanPost[$key]=addslashes($value);
+		}
+	}
+	return $cleanPost;
+}
+
+//function getGet();
+
+
+>>>>>>> d43830c35126e4e491951501240576c5d578a809
 
 
 function setLayout($layout, $layoutparams)
@@ -115,6 +142,10 @@ function getLinkRead($config)
 	);
 
 	mysqli_select_db($linkRead,$config['database.dbr'] );
+<<<<<<< HEAD
+=======
+	mysqli_query($linkRead, "SET NAMES 'utf8'");
+>>>>>>> d43830c35126e4e491951501240576c5d578a809
 
 	return $linkRead;
 }
@@ -127,7 +158,11 @@ function getLinkWrite($config)
 	);
 
 	mysqli_select_db($linkRead,$config['database.dbw'] );
+<<<<<<< HEAD
 
+=======
+	mysqli_query($linkRead, "SET NAMES 'utf8'");
+>>>>>>> d43830c35126e4e491951501240576c5d578a809
 	return $linkRead;
 }
 

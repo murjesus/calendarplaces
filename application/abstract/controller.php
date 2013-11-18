@@ -15,6 +15,25 @@ abstract class Abstract_Controller
 		$this->request = $request;
 		$this->config = $config;
 		$this->setLayout($this->layout);
+<<<<<<< HEAD
+=======
+
+		if(isset($_SESSION['user']))
+			$acl = explode(',', $this->config['rol.'.$_SESSION['user']->rol]);
+		else
+			$acl = explode(',', $this->config['rol.guest']);
+		
+		if(in_array('/'.$this->request['controller'].'/'.$this->request['action'],$acl))
+		{
+			// Do nothing
+		}
+		else
+		{
+			header('Location: /login/login');
+			exit;			
+		}
+		
+>>>>>>> d43830c35126e4e491951501240576c5d578a809
 	}
 	
 	
